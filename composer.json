@@ -1,0 +1,18 @@
+{
+    "name": "choval/email_parse",
+    "description": "Email parse and validation functions for PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Choval\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require-dev": {
+      "symplify/easy-coding-standard": "^6.0",
+      "phpunit/phpunit": "^8"
+    }
+}
