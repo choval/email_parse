@@ -11,7 +11,7 @@ Email functions for validating and parsing emails.
 ## Install
 
 ```sh
-composer require choval\email_parse
+composer require choval/email_parse
 ```
 
 ## Functions
