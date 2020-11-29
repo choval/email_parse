@@ -11,6 +11,9 @@
             "src/functions.php"
         ]
     },
+    "require": {
+        "ext-intl": "*"
+    },
     "require-dev": {
       "phpunit/phpunit": "^8"
     }
