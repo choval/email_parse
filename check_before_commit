@@ -1,6 +1,0 @@
-#!/bin/bash
-find src -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"
-find routes -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"
-find tests -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"
-vendor/bin/ecs check /src --level psr12 --fix
-
