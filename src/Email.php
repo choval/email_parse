@@ -31,13 +31,13 @@ class Email
                 $tmp['comment'] = $match_comment['comment'];
                 $match['local'] = str_replace($match[0], '', $match['local']);
             }
-            $tmp['idn_domain'] = strtolower(idn_to_ascii($match['domain'], null, \INTL_IDNA_VARIANT_UTS46));
-            $tmp['idn_local'] = strtolower(idn_to_ascii($match['local'], null, \INTL_IDNA_VARIANT_UTS46));
+            $tmp['idn_domain'] = strtolower(idn_to_ascii($match['domain'], \IDNA_DEFAULT, \INTL_IDNA_VARIANT_UTS46));
+            $tmp['idn_local'] = strtolower(idn_to_ascii($match['local'], \IDNA_DEFAULT, \INTL_IDNA_VARIANT_UTS46));
             $domain_parts = explode('.', $tmp['idn_domain']);
             $tmp['idn_tld'] = end($domain_parts);
-            $tmp['domain'] = idn_to_utf8($tmp['idn_domain'], null, \INTL_IDNA_VARIANT_UTS46);
-            $tmp['tld'] = idn_to_utf8($tmp['idn_tld'], null, \INTL_IDNA_VARIANT_UTS46);
-            $tmp['local'] = idn_to_utf8($tmp['idn_local'], null, \INTL_IDNA_VARIANT_UTS46);
+            $tmp['domain'] = idn_to_utf8($tmp['idn_domain'], 0, \INTL_IDNA_VARIANT_UTS46);
+            $tmp['tld'] = idn_to_utf8($tmp['idn_tld'], 0, \INTL_IDNA_VARIANT_UTS46);
+            $tmp['local'] = idn_to_utf8($tmp['idn_local'], 0, \INTL_IDNA_VARIANT_UTS46);
             $tmp['unicode'] = ($tmp['idn_domain'] != $tmp['domain'] || $tmp['idn_local'] != $tmp['local']) ? true : false;
             $tmp['safe_email'] = $tmp['idn_local'] . '@' . $tmp['idn_domain'];
             $tmp['email'] = $tmp['local'] . '@' . $tmp['domain'];
