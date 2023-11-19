@@ -20,12 +20,12 @@ Dörte@Sörensen.example.COM
 china@email。com
 ";
 
-        $bads = "
+        $bads = '
 abademail@nodomain
 .nonvalid@EMAIL
 asd@asd@asd.com
 two@three..com
-";
+';
         $emails = explode("\n", $raws);
         $out = [];
         foreach ($emails as $email) {
@@ -41,10 +41,9 @@ two@three..com
                 $out[] = [$email, false];
             }
         }
+
         return $out;
     }
-
-
 
     /**
      * @dataProvider emailProvider

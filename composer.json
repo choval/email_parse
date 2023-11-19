@@ -11,8 +11,11 @@
             "src/functions.php"
         ]
     },
+    "suggests": {
+        "symfony/polyfill-intl-idn": "intl polyfill alternative to intl extension",
+        "ext-intl": "Intl extension required to run idn functions"
+    },
     "require": {
-        "symfony/polyfill-intl-idn": "^1.23"
     },
     "require-dev": {
       "phpunit/phpunit": "^9"

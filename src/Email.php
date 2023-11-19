@@ -17,6 +17,7 @@ class Email
         if ($p['valid']) {
             return $p['email'];
         }
+
         return false;
     }
 
@@ -39,10 +40,11 @@ class Email
             $tmp['tld'] = idn_to_utf8($tmp['idn_tld'], 0, \INTL_IDNA_VARIANT_UTS46);
             $tmp['local'] = idn_to_utf8($tmp['idn_local'], 0, \INTL_IDNA_VARIANT_UTS46);
             $tmp['unicode'] = ($tmp['idn_domain'] != $tmp['domain'] || $tmp['idn_local'] != $tmp['local']) ? true : false;
-            $tmp['safe_email'] = $tmp['idn_local'] . '@' . $tmp['idn_domain'];
-            $tmp['email'] = $tmp['local'] . '@' . $tmp['domain'];
+            $tmp['safe_email'] = $tmp['idn_local'].'@'.$tmp['idn_domain'];
+            $tmp['email'] = $tmp['local'].'@'.$tmp['domain'];
             $tmp['valid'] = filter_var($tmp['safe_email'], \FILTER_VALIDATE_EMAIL) ? true : false;
         }
+
         return $tmp;
     }
 
@@ -52,6 +54,7 @@ class Email
         if ($p['valid']) {
             return $p['safe_email'];
         }
+
         return false;
     }
 }
